@@ -6,3 +6,6 @@
     	color: white;
 	background: orange;
 }
+.auction_date label {
+	max-width:10em;
+}
