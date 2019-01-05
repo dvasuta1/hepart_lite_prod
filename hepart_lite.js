@@ -40,13 +40,11 @@
     if (lotId && !Number.isNaN(lotId)) {
       getStaticData(lotId)
         .then(data => {
-          debugger;
           if (data && data.data.lotDetails) {
             let theData = data.data.lotDetails;
-            if (typeof callback === "function") {
-              callback(theData);
-            }
             return theData;
+          } else {
+            return {};
           }
         })
         .then(data => {
@@ -93,7 +91,7 @@
       let container = $(document.querySelectorAll('[data-uname~="lotdetailPrimarydamage"]'));
       container = container.parent().parent();
       let tmpl = `<div id='hepart_seller_type'><div class='details hepart_row'><label>${tranlations[userLang].hepart_seller_type}</label><span class='lot-details-desc col-md-6'>${data.std}</span></div></div>`;
-      if (data.std.toLowerCase().includes('dealer') && !request.isSold) {
+      if (data.std.toLowerCase().includes('dealer') && !data.isSold) {
         if (request.auctionDate) {
           ga('hepart.send', 'event', 'lot', 'storeDealerLotWithTime', data.lotId + '_' + data.auctionDate);
         } else {
