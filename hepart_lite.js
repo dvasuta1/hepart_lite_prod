@@ -1,72 +1,74 @@
 (function() {
-    ga('create', 'UA-117936283-1', 'auto', 'hepart');
-    ga('hepart.send', 'pageview');
-    ga('hepart.set', 'checkProtocolTask', function() {});
-    ga('hepart.require', 'displayfeatures');
+  ga('create', 'UA-117936283-1', 'auto', 'hepart');
+  ga('hepart.send', 'pageview');
+  ga('hepart.set', 'checkProtocolTask', function() {});
+  ga('hepart.require', 'displayfeatures');
 
   function getLotId() {
     var url = window.location.href.replace(/\/$/, '');
     return parseInt(url.substr(url.lastIndexOf('/') + 1));
   }
 
-function getStaticData(lotId) {
+  function getStaticData(lotId) {
     return $.ajax({
-        contentType: 'application/json',
-        dataType: 'json',
-        beforeSend: function (request) {
-            request.setRequestHeader('X-XSRF-TOKEN', window.appInit.csrfToken);
-        },
-        processData: false,
-        type: 'GET',
-        url: 'https://www.copart.com/public/data/lotdetails/solr/' + lotId
+      contentType: 'application/json',
+      dataType: 'json',
+      beforeSend: function(request) {
+        request.setRequestHeader('X-XSRF-TOKEN', window.appInit.csrfToken);
+      },
+      processData: false,
+      type: 'GET',
+      url: 'https://www.copart.com/public/data/lotdetails/solr/' + lotId
     });
-}
-function getDynamicData(lotId) {
+  }
+
+  function getDynamicData(lotId) {
     return $.ajax({
-        contentType: 'application/json',
-        dataType: 'json',
-        beforeSend: function (request) {
-            request.setRequestHeader('X-XSRF-TOKEN', window.appInit.csrfToken);
-        },
-        processData: false,
-        type: 'GET',
-        url: 'https://www.copart.com/data/lotdetails/dynamic/' + lotId
+      contentType: 'application/json',
+      dataType: 'json',
+      beforeSend: function(request) {
+        request.setRequestHeader('X-XSRF-TOKEN', window.appInit.csrfToken);
+      },
+      processData: false,
+      type: 'GET',
+      url: 'https://www.copart.com/data/lotdetails/dynamic/' + lotId
     });
-}
-   function getLotinfoById() {
+  }
+
+  function getLotinfoById() {
     let lotId = getLotId();
     if (lotId && !Number.isNaN(lotId)) {
-        getStaticData(lotId)
-            .then(data => {
-              debugger;
-                if (data && data.data.lotDetails) {
-                    let theData = data.data.lotDetails;
-                    if (typeof callback === "function") {
-                        callback(theData);
-                    }
-                    return theData;
-                }
+      getStaticData(lotId)
+        .then(data => {
+          debugger;
+          if (data && data.data.lotDetails) {
+            let theData = data.data.lotDetails;
+            if (typeof callback === "function") {
+              callback(theData);
+            }
+            return theData;
+          }
+        })
+        .then(data => {
+          getDynamicData(lotId)
+            .then((response) => {
+              if (!response.data.lotDetails) {
+                return;
+              }
+              let resp = response.data.lotDetails;
+              let theData = data;
+              theData.awardedHighBid = resp.currentBid || 0;
+              theData.lotSold = resp.lotSold || false;
+              theData.cuc = data.cuc || 'USD';
+              insertTableRows(theData);
             })
-            .then(data => {
-                getDynamicData(lotId)
-                    .then((response) => {
-                        if (!response.data.lotDetails) {
-                            return;
-                        }
-                        let resp = response.data.lotDetails;
-                        let theData = data;
-                        theData.awardedHighBid = resp.currentBid || 0;
-                        theData.lotSold = resp.lotSold || false;
-                        theData.cuc = data.cuc || 'USD';
-                        insertTableRows(theData);
-                    })
-            });
+        });
 
     } else {
-        throw new Error('Wrong lot id!');
+      throw new Error('Wrong lot id!');
     }
-};
- 
+  };
+
   function insertTableRows(data) {
     var sellerRow = document.querySelectorAll('[data-uname~="lotdetailSeller"]');
     var isSellerRowDataAvailable = sellerRow.length === 0 && (data.snm || data.scn);
@@ -81,19 +83,26 @@ function getDynamicData(lotId) {
       var sellerName = data.snm || data.scn;
       removeEl('hepart_seller_type');
       removeEl('hepart_seller_name');
-      var container = $(document.querySelectorAll('[data-uname~="lotdetailPrimarydamage"]'));
+      let container = $(document.querySelectorAll('[data-uname~="lotdetailPrimarydamage"]'));
       container = container.parent().parent();
-      var tmpl = `<div id='hepart_seller_type'><div class='details hepart_row'><label>${tranlations[userLang].hepart_seller_type}</label><span class='lot-details-desc col-md-6'>${data.std}</span></div></div>`;
-      tmpl += `<div id='hepart_seller_name'><div class='details hepart_row'><label>${tranlations[userLang].hepart_seller_name}</label><span  class='lot-details-desc col-md-6'>${sellerName}</span></div></div>`;
+      let tmpl = `<div id='hepart_seller_name'><div class='details hepart_row'><label>${tranlations[userLang].hepart_seller_name}</label><span  class='lot-details-desc col-md-6'>${sellerName}</span></div></div>`;
       container.prepend($(tmpl));
-      if (data.std.toLowerCase().includes('dealer') && !request.isSold) {
-          if (request.auctionDate) {
-            ga('hepart.send', 'event', 'lot', 'storeDealerLotWithTime', data.lotId + '_' + data.auctionDate);
-          } else {
-            ga('hepart.send', 'event', 'lot', 'storeDealerLot', data.lotId);
-          }
-        }
     }
+
+    if (data.std) {
+      let container = $(document.querySelectorAll('[data-uname~="lotdetailPrimarydamage"]'));
+      container = container.parent().parent();
+      let tmpl = `<div id='hepart_seller_type'><div class='details hepart_row'><label>${tranlations[userLang].hepart_seller_type}</label><span class='lot-details-desc col-md-6'>${data.std}</span></div></div>`;
+      if (data.std.toLowerCase().includes('dealer') && !request.isSold) {
+        if (request.auctionDate) {
+          ga('hepart.send', 'event', 'lot', 'storeDealerLotWithTime', data.lotId + '_' + data.auctionDate);
+        } else {
+          ga('hepart.send', 'event', 'lot', 'storeDealerLot', data.lotId);
+        }
+      }
+      container.prepend($(tmpl));
+    }
+
     if (data.rc) {
       removeEl('hepart_repair_cost');
       var container = $(document.querySelectorAll('[data-uname~="lotdetailVin"]'));
@@ -103,7 +112,7 @@ function getDynamicData(lotId) {
     }
     if (isFinalPriceDataAvailable) {
       removeEl('hepart_final_price');
-      var container = $(document.querySelector('.disclaimer p')).parent(); 
+      var container = $(document.querySelector('.disclaimer p')).parent();
       var tmpl = `<div id='hepart_final_price' class='sold hepart_final_price'>${tranlations[userLang].hepart_final_price} ${formatter.format(data.awardedHighBid)} ${data.cuc} </div>`;
       container.after($(tmpl));
     }
