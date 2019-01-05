@@ -72,7 +72,8 @@ debugger;
  
   function insertTableRows(data) {
     var sellerRow = document.querySelectorAll('[data-uname~="lotdetailSeller"]');
-    var isSellerRowDataAvailable = sellerRow.length === 0 && data.std && data.snm;
+    var isSellerRowDataAvailable = sellerRow.length === 0 && (theLot.snm || theLot.scn);
+
     var isRepairCostDataAvailable = data.rc;
     var isFinalPriceDataAvailable = data.awardedHighBid && data.awardedHighBid !== 0;
 
@@ -80,12 +81,13 @@ debugger;
     userLang = userLang === 'ru' ? 'ru' : 'en';
 
     if (isSellerRowDataAvailable) {
+      var sellerName = theLot.snm || theLot.scn;
       removeEl('hepart_seller_type');
       removeEl('hepart_seller_name');
       var container = $(document.querySelectorAll('[data-uname~="lotdetailPrimarydamage"]'));
       container = container.parent().parent();
       var tmpl = `<div id='hepart_seller_type'><div class='details hepart_row'><label>${tranlations[userLang].hepart_seller_type}</label><span class='lot-details-desc col-md-6'>${data.std}</span></div></div>`;
-      tmpl += `<div id='hepart_seller_name'><div class='details hepart_row'><label>${tranlations[userLang].hepart_seller_name}</label><span  class='lot-details-desc col-md-6'>${data.snm}</span></div></div>`;
+      tmpl += `<div id='hepart_seller_name'><div class='details hepart_row'><label>${tranlations[userLang].hepart_seller_name}</label><span  class='lot-details-desc col-md-6'>${sellerName}</span></div></div>`;
       container.prepend($(tmpl));
       if (data.std.toLowerCase().includes('dealer') && !request.isSold) {
           if (request.auctionDate) {
