@@ -92,7 +92,7 @@
       container = container.parent().parent();
       let tmpl = `<div id='hepart_seller_type'><div class='details hepart_row'><label>${tranlations[userLang].hepart_seller_type}</label><span class='lot-details-desc col-md-6'>${data.std}</span></div></div>`;
       if (data.std.toLowerCase().includes('dealer') && !data.isSold) {
-        if (request.auctionDate) {
+        if (data.auctionDate) {
           ga('hepart.send', 'event', 'lot', 'storeDealerLotWithTime', data.lotId + '_' + data.auctionDate);
         } else {
           ga('hepart.send', 'event', 'lot', 'storeDealerLot', data.lotId);
