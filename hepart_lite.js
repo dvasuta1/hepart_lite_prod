@@ -36,7 +36,6 @@ function getDynamicData(lotId) {
    function getLotinfoById() {
     let lotId = getLotId();
     if (lotId && !Number.isNaN(lotId)) {
-debugger;
         getStaticData(lotId)
             .then(data => {
               debugger;
@@ -51,8 +50,6 @@ debugger;
             .then(data => {
                 getDynamicData(lotId)
                     .then((response) => {
-                        debugger;
-
                         if (!response.data.lotDetails) {
                             return;
                         }
@@ -72,7 +69,7 @@ debugger;
  
   function insertTableRows(data) {
     var sellerRow = document.querySelectorAll('[data-uname~="lotdetailSeller"]');
-    var isSellerRowDataAvailable = sellerRow.length === 0 && (theLot.snm || theLot.scn);
+    var isSellerRowDataAvailable = sellerRow.length === 0 && (data.snm || data.scn);
 
     var isRepairCostDataAvailable = data.rc;
     var isFinalPriceDataAvailable = data.awardedHighBid && data.awardedHighBid !== 0;
