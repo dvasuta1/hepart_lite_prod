@@ -81,7 +81,7 @@ debugger;
     userLang = userLang === 'ru' ? 'ru' : 'en';
 
     if (isSellerRowDataAvailable) {
-      var sellerName = theLot.snm || theLot.scn;
+      var sellerName = data.snm || data.scn;
       removeEl('hepart_seller_type');
       removeEl('hepart_seller_name');
       var container = $(document.querySelectorAll('[data-uname~="lotdetailPrimarydamage"]'));
