@@ -72,7 +72,7 @@
     var isSellerRowDataAvailable = sellerRow.length === 0 && (data.snm || data.scn);
 
     var isRepairCostDataAvailable = data.rc;
-    var isFinalPriceDataAvailable = data.awardedHighBid && data.awardedHighBid !== 0;
+    var isFinalPriceDataAvailable = data.lotSold && data.awardedHighBid && data.awardedHighBid !== 0;
 
     var userLang = getCookie('userLang') || 'en';
     userLang = userLang === 'ru' ? 'ru' : 'en';
