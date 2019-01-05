@@ -33,37 +33,7 @@ function getDynamicData(lotId) {
         url: 'https://www.copart.com/data/lotdetails/dynamic/' + lotId
     });
 }
-
-/*
- function getLotinfoById() {
-   var lotId = getLotId();
-   if (lotId && !Number.isNaN(lotId)) {
-     var getDynamicData = fetch("https://www.copart.com/public/data/lotdetails/dynamic/" + lotId);
-     fetch("https://www.copart.com/public/data/lotdetails/solr/" + lotId)
-       .then((response) => {
-         return response.json();
-       })
-       .then((data) => {
-         var theData = data.data.lotDetails;
-         if (!theData.awardedHighBid) {
-           getDynamicData.then((response) => {
-             return response.json();
-           }).then(function(resp) {
-             theData.awardedHighBid = resp.data.lotDetails.currentBid ? resp.data.lotDetails.currentBid : 0;
-             theData.lotSold = resp.data.lotDetails.lotSold || false;
-             insertTableRows(theData);
-           });
-         } else {
-           data && data.data.lotDetails && insertTableRows(data.data.lotDetails);
-         }
-       })
-       .catch((error) => console.error(`Error: ${error}`));
-   } else {
-     throw new Error('Wrong lot id!');
-   }
- }
-*/
-function getLotinfoById() {
+   function getLotinfoById() {
     let lotId = getLotId();
     if (lotId && !Number.isNaN(lotId)) {
 debugger;
@@ -87,7 +57,7 @@ debugger;
                             return;
                         }
                         let resp = response.data.lotDetails;
-                        let theData = {};
+                        let theData = data;
                         theData.awardedHighBid = resp.currentBid || 0;
                         theData.lotSold = resp.lotSold || false;
                         theData.cuc = data.cuc || 'USD';
