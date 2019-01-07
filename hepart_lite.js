@@ -39,7 +39,9 @@
 
   function getLotinfoById() {
     let lotId = getLotId();
-    
+    console.log('B', lotId);
+    console.log('C', lotId && !Number.isNaN(lotId));
+
     if (lotId && !Number.isNaN(lotId)) {
       console.log('0');
       getStaticData(lotId)
@@ -167,5 +169,6 @@
   };
 
   getLotinfoById();
+  console.log('A');
 
 })()
