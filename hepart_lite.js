@@ -14,8 +14,7 @@
       contentType: 'application/json',
       dataType: 'json',
       beforeSend: function(request) {
-        let token = window.appInit.csrfToken || "34897c7b-deb4-4af3-bf23-a3f1bdd3356f";
-        request.setRequestHeader('X-XSRF-TOKEN', token);
+        request.setRequestHeader('X-XSRF-TOKEN', window.appInit.csrfToken);
       },
       processData: false,
       type: 'GET',
@@ -28,8 +27,7 @@
       contentType: 'application/json',
       dataType: 'json',
       beforeSend: function(request) {
-        let token = window.appInit.csrfToken || "34897c7b-deb4-4af3-bf23-a3f1bdd3356f";
-        request.setRequestHeader('X-XSRF-TOKEN', token);
+        request.setRequestHeader('X-XSRF-TOKEN', window.appInit.csrfToken);
       },
       processData: false,
       type: 'GET',
