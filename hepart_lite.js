@@ -39,9 +39,12 @@
 
   function getLotinfoById() {
     let lotId = getLotId();
+    
     if (lotId && !Number.isNaN(lotId)) {
+      console.log('0');
       getStaticData(lotId)
         .then(data => {
+         console.log('1');
           if (data && data.data.lotDetails) {
             let theData = data.data.lotDetails;
             return theData;
@@ -55,6 +58,7 @@
               if (!response.data.lotDetails) {
                 return;
               }
+              console.log('2');
               let resp = response.data.lotDetails;
               let theData = data;
               theData.awardedHighBid = resp.currentBid || 0;
