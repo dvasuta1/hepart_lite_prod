@@ -1,1 +1,172 @@
-var _0x5f52=['hepart','hepart.send','hepart.set','checkProtocolTask','hepart.require','location','href','replace','substr','lastIndexOf','ajax','json','setRequestHeader','X-XSRF-TOKEN','appInit','csrfToken','GET','https://www.copart.com/data/lotdetails/dynamic/','log','isNaN','then','data','lotDetails','awardedHighBid','currentBid','lotSold','cuc','Wrong\x20lot\x20id!','querySelectorAll','[data-uname~=\x22lotdetailSeller\x22]','length','snm','scn','userLang','hepart_seller_type','hepart_seller_name','[data-uname~=\x22lotdetailPrimarydamage\x22]','parent','<div\x20id=\x27hepart_seller_name\x27><div\x20class=\x27details\x20hepart_row\x27><label>','</label><span\x20\x20class=\x27lot-details-desc\x20col-md-6\x27>','</span></div></div>','prepend','std','<div\x20id=\x27hepart_seller_type\x27><div\x20class=\x27details\x20hepart_row\x27><label>','toLowerCase','includes','auctionDate','event','storeDealerLotWithTime','lotId','lot','storeDealerLot','hepart_repair_cost','[data-uname~=\x22lotdetailVin\x22]','<div\x20id=\x27hepart_repair_cost\x27><div\x20class=\x27details\x20hepart_row\x27><label>','</label><span\x20class=\x27lot-details-desc\x20col-md-6\x27>','hepart_final_price','querySelector','<div\x20id=\x27hepart_final_price\x27\x20class=\x27sold\x20hepart_final_price\x27>','\x20</div>','ifs','hepart_no_data','.watch-btn','<span\x20id=\x27hepart_no_data\x27>','before','parentNode','removeChild','cookie','(?:^|;\x20)','\x5c$1','=([^;]*)','NumberFormat','en-US','currency','Ничего\x20нового','Продано\x20за\x20','Оценочная\x20стоимость\x20ремонта:','No\x20useful\x20data\x20available','Sold\x20for\x20','Seller:','Seller\x20type:','create','UA-117936283-1','auto'];(function(_0x171dc9,_0x529227){var _0x54a1e=function(_0x2de885){while(--_0x2de885){_0x171dc9['push'](_0x171dc9['shift']());}};_0x54a1e(++_0x529227);}(_0x5f52,0xf9));var _0x44c0=function(_0x3fe4b2,_0x231a2b){_0x3fe4b2=_0x3fe4b2-0x0;var _0x4a58d2=_0x5f52[_0x3fe4b2];return _0x4a58d2;};(function(){ga(_0x44c0('0x0'),_0x44c0('0x1'),_0x44c0('0x2'),_0x44c0('0x3'));ga(_0x44c0('0x4'),'pageview');ga(_0x44c0('0x5'),_0x44c0('0x6'),function(){});ga(_0x44c0('0x7'),'displayfeatures');function _0x3afef5(){var _0x94b928=window[_0x44c0('0x8')][_0x44c0('0x9')][_0x44c0('0xa')](/\/$/,'');return parseInt(_0x94b928[_0x44c0('0xb')](_0x94b928[_0x44c0('0xc')]('/')+0x1));}function _0x174bc7(_0x3c72ee){return $[_0x44c0('0xd')]({'contentType':'application/json','dataType':_0x44c0('0xe'),'beforeSend':function(_0x1665c7){_0x1665c7[_0x44c0('0xf')](_0x44c0('0x10'),window[_0x44c0('0x11')][_0x44c0('0x12')]);},'processData':![],'type':_0x44c0('0x13'),'url':'https://www.copart.com/public/data/lotdetails/solr/'+_0x3c72ee});}function _0x466882(_0x46cd9c){return $[_0x44c0('0xd')]({'contentType':'application/json','dataType':_0x44c0('0xe'),'beforeSend':function(_0x15dd7c){_0x15dd7c[_0x44c0('0xf')]('X-XSRF-TOKEN',window[_0x44c0('0x11')]['csrfToken']);},'processData':![],'type':'GET','url':_0x44c0('0x14')+_0x46cd9c});}function _0x151aba(){let _0x4b78cd=_0x3afef5();console[_0x44c0('0x15')]('B',_0x4b78cd);console[_0x44c0('0x15')]('C',_0x4b78cd&&!Number[_0x44c0('0x16')](_0x4b78cd));if(_0x4b78cd&&!Number[_0x44c0('0x16')](_0x4b78cd)){console[_0x44c0('0x15')]('0');_0x174bc7(_0x4b78cd)[_0x44c0('0x17')](_0x5c01b8=>{console[_0x44c0('0x15')]('1');if(_0x5c01b8&&_0x5c01b8[_0x44c0('0x18')][_0x44c0('0x19')]){let _0x1c1a5c=_0x5c01b8[_0x44c0('0x18')]['lotDetails'];return _0x1c1a5c;}else{return{};}})[_0x44c0('0x17')](_0x286197=>{_0x466882(_0x4b78cd)[_0x44c0('0x17')](_0x1b6dd2=>{if(!_0x1b6dd2[_0x44c0('0x18')][_0x44c0('0x19')]){return;}console[_0x44c0('0x15')]('2');let _0x395a5a=_0x1b6dd2[_0x44c0('0x18')][_0x44c0('0x19')];let _0x20fccd=_0x286197;_0x20fccd[_0x44c0('0x1a')]=_0x395a5a[_0x44c0('0x1b')]||0x0;_0x20fccd[_0x44c0('0x1c')]=_0x395a5a[_0x44c0('0x1c')]||![];_0x20fccd[_0x44c0('0x1d')]=_0x286197[_0x44c0('0x1d')]||'USD';_0x47101e(_0x20fccd);});});}else{throw new Error(_0x44c0('0x1e'));}};function _0x47101e(_0x49dac2){var _0x47acfc=document[_0x44c0('0x1f')](_0x44c0('0x20'));var _0x4ae323=_0x47acfc[_0x44c0('0x21')]===0x0&&(_0x49dac2[_0x44c0('0x22')]||_0x49dac2[_0x44c0('0x23')]);var _0x39c024=_0x49dac2['rc'];var _0x36f1cb=_0x49dac2['lotSold']&&_0x49dac2[_0x44c0('0x1a')]&&_0x49dac2[_0x44c0('0x1a')]!==0x0;var _0x4e8bda=_0x2bc20e(_0x44c0('0x24'))||'en';_0x4e8bda=_0x4e8bda==='ru'?'ru':'en';if(_0x4ae323){var _0x287ad5=_0x49dac2['snm']||_0x49dac2['scn'];_0x140a11(_0x44c0('0x25'));_0x140a11(_0x44c0('0x26'));let _0x13da6f=$(document[_0x44c0('0x1f')](_0x44c0('0x27')));_0x13da6f=_0x13da6f[_0x44c0('0x28')]()[_0x44c0('0x28')]();let _0x281ec8=_0x44c0('0x29')+_0x31c3c[_0x4e8bda][_0x44c0('0x26')]+_0x44c0('0x2a')+_0x287ad5+_0x44c0('0x2b');_0x13da6f[_0x44c0('0x2c')]($(_0x281ec8));}if(_0x49dac2[_0x44c0('0x2d')]){let _0x198c73=$(document[_0x44c0('0x1f')]('[data-uname~=\x22lotdetailPrimarydamage\x22]'));_0x198c73=_0x198c73['parent']()[_0x44c0('0x28')]();let _0x281ec8=_0x44c0('0x2e')+_0x31c3c[_0x4e8bda]['hepart_seller_type']+'</label><span\x20class=\x27lot-details-desc\x20col-md-6\x27>'+_0x49dac2[_0x44c0('0x2d')]+_0x44c0('0x2b');if(_0x49dac2[_0x44c0('0x2d')][_0x44c0('0x2f')]()[_0x44c0('0x30')]('dealer')&&!_0x49dac2['isSold']){if(_0x49dac2[_0x44c0('0x31')]){ga('hepart.send',_0x44c0('0x32'),'lot',_0x44c0('0x33'),_0x49dac2[_0x44c0('0x34')]+'_'+_0x49dac2[_0x44c0('0x31')]);}else{ga(_0x44c0('0x4'),_0x44c0('0x32'),_0x44c0('0x35'),_0x44c0('0x36'),_0x49dac2[_0x44c0('0x34')]);}}_0x198c73['prepend']($(_0x281ec8));}if(_0x49dac2['rc']){_0x140a11(_0x44c0('0x37'));var _0x43e4ff=$(document[_0x44c0('0x1f')](_0x44c0('0x38')));_0x43e4ff=_0x43e4ff[_0x44c0('0x28')]()[_0x44c0('0x28')]();var _0x297c0c=_0x44c0('0x39')+_0x31c3c[_0x4e8bda][_0x44c0('0x37')]+_0x44c0('0x3a')+_0xd10701['format'](_0x49dac2['rc'])+'\x20'+_0x49dac2[_0x44c0('0x1d')]+_0x44c0('0x2b');_0x43e4ff[_0x44c0('0x2c')]($(_0x297c0c));}if(_0x36f1cb){_0x140a11(_0x44c0('0x3b'));var _0x43e4ff=$(document[_0x44c0('0x3c')]('.disclaimer\x20p'))['parent']();var _0x297c0c=_0x44c0('0x3d')+_0x31c3c[_0x4e8bda][_0x44c0('0x3b')]+'\x20'+_0xd10701['format'](_0x49dac2[_0x44c0('0x1a')])+'\x20'+_0x49dac2['cuc']+_0x44c0('0x3e');_0x43e4ff['after']($(_0x297c0c));}if(!_0x4ae323&&!_0x39c024&&!_0x36f1cb&&!_0x49dac2[_0x44c0('0x3f')]){_0x140a11(_0x44c0('0x40'));var _0x43e4ff=$(document[_0x44c0('0x3c')](_0x44c0('0x41')));var _0x297c0c=_0x44c0('0x42')+_0x31c3c[_0x4e8bda]['hepart_no_data']+'</span>';_0x43e4ff[_0x44c0('0x43')]($(_0x297c0c));}}function _0x140a11(_0x22b20c){while(div=document[_0x44c0('0x3c')](_0x22b20c)){div[_0x44c0('0x44')][_0x44c0('0x45')](div);}}function _0x2bc20e(_0x4c0ac7){var _0x110fe5=document[_0x44c0('0x46')]['match'](new RegExp(_0x44c0('0x47')+_0x4c0ac7[_0x44c0('0xa')](/([\.$?*|{}\(\)\[\]\\\/\+^])/g,_0x44c0('0x48'))+_0x44c0('0x49')));return _0x110fe5?decodeURIComponent(_0x110fe5[0x1]):undefined;}var _0xd10701=new Intl[(_0x44c0('0x4a'))](_0x44c0('0x4b'),{'style':_0x44c0('0x4c'),'currency':'USD','minimumFractionDigits':0x0,'maximumFractionDigits':0x0});var _0x31c3c={'ru':{'hepart_no_data':_0x44c0('0x4d'),'hepart_final_price':_0x44c0('0x4e'),'hepart_repair_cost':_0x44c0('0x4f'),'hepart_seller_name':'Продавец:','hepart_seller_type':'Тип\x20продавца:'},'en':{'hepart_no_data':_0x44c0('0x50'),'hepart_final_price':_0x44c0('0x51'),'hepart_repair_cost':'Est.\x20Repair\x20Cost:','hepart_seller_name':_0x44c0('0x52'),'hepart_seller_type':_0x44c0('0x53')}};_0x151aba();console[_0x44c0('0x15')]('A');}());
+(function() {
+  ga('create', 'UA-117936283-1', 'auto', 'hepart');
+  ga('hepart.send', 'pageview');
+  ga('hepart.set', 'checkProtocolTask', function() {});
+  ga('hepart.require', 'displayfeatures');
+
+  function getLotId() {
+    var url = window.location.href.replace(/\/$/, '');
+    return parseInt(url.substr(url.lastIndexOf('/') + 1));
+  }
+
+  function getStaticData(lotId) {
+    return $.ajax({
+      contentType: 'application/json',
+      dataType: 'json',
+      beforeSend: function(request) {
+        request.setRequestHeader('X-XSRF-TOKEN', window.appInit.csrfToken);
+      },
+      processData: false,
+      type: 'GET',
+      url: 'https://www.copart.com/public/data/lotdetails/solr/' + lotId
+    });
+  }
+
+  function getDynamicData(lotId) {
+    return $.ajax({
+      contentType: 'application/json',
+      dataType: 'json',
+      beforeSend: function(request) {
+        request.setRequestHeader('X-XSRF-TOKEN', window.appInit.csrfToken);
+      },
+      processData: false,
+      type: 'GET',
+      url: 'https://www.copart.com/data/lotdetails/dynamic/' + lotId
+    });
+  }
+
+  function getLotinfoById() {
+    let lotId = getLotId();
+    console.log('B', lotId);
+    console.log('C', lotId && !Number.isNaN(lotId));
+
+    if (lotId && !Number.isNaN(lotId)) {
+      console.log('0');
+      getStaticData(lotId)
+        .then(data => {
+         console.log('1');
+          if (data && data.data.lotDetails) {
+            let theData = data.data.lotDetails;
+            return theData;
+          } else {
+            return {};
+          }
+        })
+        .then(data => {
+          getDynamicData(lotId)
+            .then((response) => {
+              if (!response.data.lotDetails) {
+                return;
+              }
+              console.log('2');
+              let resp = response.data.lotDetails;
+              let theData = data;
+              theData.awardedHighBid = resp.currentBid || 0;
+              theData.lotSold = resp.lotSold || false;
+              theData.cuc = data.cuc || 'USD';
+              insertTableRows(theData);
+            })
+        });
+
+    } else {
+      throw new Error('Wrong lot id!');
+    }
+  };
+
+  function insertTableRows(data) {
+    var sellerRow = document.querySelectorAll('[data-uname~="lotdetailSeller"]');
+    var isSellerRowDataAvailable = sellerRow.length === 0 && (data.snm || data.scn);
+
+    var isRepairCostDataAvailable = data.rc;
+    var isFinalPriceDataAvailable = data.lotSold && data.awardedHighBid && data.awardedHighBid !== 0;
+
+    var userLang = getCookie('userLang') || 'en';
+    userLang = userLang === 'ru' ? 'ru' : 'en';
+
+    if (isSellerRowDataAvailable) {
+      var sellerName = data.snm || data.scn;
+      removeEl('hepart_seller_type');
+      removeEl('hepart_seller_name');
+      let container = $(document.querySelectorAll('[data-uname~="lotdetailPrimarydamage"]'));
+      container = container.parent().parent();
+      let tmpl = `<div id='hepart_seller_name'><div class='details hepart_row'><label>${tranlations[userLang].hepart_seller_name}</label><span  class='lot-details-desc col-md-6'>${sellerName}</span></div></div>`;
+      container.prepend($(tmpl));
+    }
+
+    if (data.std) {
+      let container = $(document.querySelectorAll('[data-uname~="lotdetailPrimarydamage"]'));
+      container = container.parent().parent();
+      let tmpl = `<div id='hepart_seller_type'><div class='details hepart_row'><label>${tranlations[userLang].hepart_seller_type}</label><span class='lot-details-desc col-md-6'>${data.std}</span></div></div>`;
+      if (data.std.toLowerCase().includes('dealer') && !data.isSold) {
+        if (data.auctionDate) {
+          ga('hepart.send', 'event', 'lot', 'storeDealerLotWithTime', data.lotId + '_' + data.auctionDate);
+        } else {
+          ga('hepart.send', 'event', 'lot', 'storeDealerLot', data.lotId);
+        }
+      }
+      container.prepend($(tmpl));
+    }
+
+    if (data.rc) {
+      removeEl('hepart_repair_cost');
+      var container = $(document.querySelectorAll('[data-uname~="lotdetailVin"]'));
+      container = container.parent().parent();
+      var tmpl = `<div id='hepart_repair_cost'><div class='details hepart_row'><label>${tranlations[userLang].hepart_repair_cost}</label><span class='lot-details-desc col-md-6'>${formatter.format(data.rc)} ${data.cuc}</span></div></div>`;
+      container.prepend($(tmpl));
+    }
+    if (isFinalPriceDataAvailable) {
+      removeEl('hepart_final_price');
+      var container = $(document.querySelector('.disclaimer p')).parent();
+      var tmpl = `<div id='hepart_final_price' class='sold hepart_final_price'>${tranlations[userLang].hepart_final_price} ${formatter.format(data.awardedHighBid)} ${data.cuc} </div>`;
+      container.after($(tmpl));
+    }
+    if (!isSellerRowDataAvailable && !isRepairCostDataAvailable && !isFinalPriceDataAvailable && !data.ifs) {
+      removeEl('hepart_no_data');
+      var container = $(document.querySelector('.watch-btn'));
+      var tmpl = `<span id='hepart_no_data'>${tranlations[userLang].hepart_no_data}</span>`;
+      container.before($(tmpl));
+    }
+  }
+
+  function removeEl(id) {
+    while (div = document.querySelector(id)) {
+      div.parentNode.removeChild(div);
+    }
+  }
+
+  function getCookie(name) {
+    var matches = document.cookie.match(new RegExp(
+      "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+    ));
+    return matches ? decodeURIComponent(matches[1]) : undefined;
+  }
+
+  var formatter = new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 0
+  });
+
+  var tranlations = {
+    ru: {
+      hepart_no_data: 'Ничего нового',
+      hepart_final_price: 'Продано за ',
+      hepart_repair_cost: 'Оценочная стоимость ремонта:',
+      hepart_seller_name: 'Продавец:',
+      hepart_seller_type: 'Тип продавца:'
+    },
+    en: {
+      hepart_no_data: 'No useful data available',
+      hepart_final_price: 'Sold for ',
+      hepart_repair_cost: 'Est. Repair Cost:',
+      hepart_seller_name: 'Seller:',
+      hepart_seller_type: 'Seller type:'
+    },
+
+  };
+
+  getLotinfoById();
+  console.log('A');
+
+})()
