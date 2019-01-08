@@ -37,14 +37,9 @@
 
   function getLotinfoById() {
     let lotId = getLotId();
-    console.log('B', lotId);
-    console.log('C', lotId && !Number.isNaN(lotId));
-
     if (lotId && !Number.isNaN(lotId)) {
-      console.log('0');
       getStaticData(lotId)
         .then(data => {
-         console.log('1');
           if (data && data.data.lotDetails) {
             let theData = data.data.lotDetails;
             return theData;
@@ -59,20 +54,19 @@
               if (!response.data.lotDetails) {
                 return;
               }
-              console.log('2');
               let resp = response.data.lotDetails;
               let theData = data;
               theData.awardedHighBid = resp.currentBid || 0;
               theData.lotSold = resp.lotSold || false;
               theData.cuc = data.cuc || 'USD';
-	      updateSoldSection(theData);
+              updateSoldSection(theData);
             })
         });
 
     } else {
       throw new Error('Wrong lot id!');
     }
-  };
+  }
 
   function insertTableRows(data) {
     var sellerRow = document.querySelectorAll('[data-uname~="lotdetailSeller"]');
@@ -85,7 +79,7 @@
     userLang = userLang === 'ru' ? 'ru' : 'en';
 
     if (isSellerRowDataAvailable) {
-      var sellerName = data.snm || data.scn;
+      let sellerName = data.snm || data.scn;
       removeEl('hepart_seller_type');
       removeEl('hepart_seller_name');
       let container = $(document.querySelectorAll('[data-uname~="lotdetailPrimarydamage"]'));
@@ -115,34 +109,27 @@
       var tmpl = `<div id='hepart_repair_cost'><div class='details hepart_row'><label>${tranlations[userLang].hepart_repair_cost}</label><span class='lot-details-desc col-md-6'>${formatter.format(data.rc)} ${data.cuc}</span></div></div>`;
       container.prepend($(tmpl));
     }
-    /*
-    if (isFinalPriceDataAvailable) {
-      removeEl('hepart_final_price');
-      var container = $(document.querySelector('.disclaimer p')).parent();
-      var tmpl = `<div id='hepart_final_price' class='sold hepart_final_price'>${tranlations[userLang].hepart_final_price} ${formatter.format(data.awardedHighBid)} ${data.cuc} </div>`;
-      container.after($(tmpl));
-    } */
     if (!isSellerRowDataAvailable && !isRepairCostDataAvailable && !isFinalPriceDataAvailable && !data.ifs) {
       removeEl('hepart_no_data');
-      var container = $(document.querySelector('.watch-btn'));
-      var tmpl = `<span id='hepart_no_data'>${tranlations[userLang].hepart_no_data}</span>`;
+      let container = $(document.querySelector('.watch-btn'));
+      let tmpl = `<span id='hepart_no_data'>${tranlations[userLang].hepart_no_data}</span>`;
       container.before($(tmpl));
     }
   }
 
   function updateSoldSection(data) {
-	var isFinalPriceDataAvailable = data.lotSold && data.awardedHighBid && data.awardedHighBid != 0;
-	var isContainerNotRendered = $('#hepart_final_price').length == 0;
-	var userLang = getCookie('userLang') || 'en';
-        userLang = userLang === 'ru' ? 'ru' : 'en'
+    var isFinalPriceDataAvailable = data.lotSold && data.awardedHighBid && data.awardedHighBid != 0;
+    var isContainerNotRendered = $('#hepart_final_price').length == 0;
+    var userLang = getCookie('userLang') || 'en';
+    userLang = userLang === 'ru' ? 'ru' : 'en'
 
-	if (isFinalPriceDataAvailable && isContainerNotRendered) {
-		var container = $(document.querySelector('.disclaimer p')).parent();
-		var tmpl = `<div id='hepart_final_price' class='sold hepart_final_price'>${tranlations[userLang].hepart_final_price} ${formatter.format(data.awardedHighBid)} ${data.cuc} </div>`;
-		container.after($(tmpl));
-	}
-}
-  
+    if (isFinalPriceDataAvailable && isContainerNotRendered) {
+      var container = $(document.querySelector('.disclaimer p')).parent();
+      var tmpl = `<div id='hepart_final_price' class='sold hepart_final_price'>${tranlations[userLang].hepart_final_price} ${formatter.format(data.awardedHighBid)} ${data.cuc} </div>`;
+      container.after($(tmpl));
+    }
+  }
+
   function removeEl(id) {
     while (div = document.querySelector(id)) {
       div.parentNode.removeChild(div);
@@ -177,11 +164,9 @@
       hepart_repair_cost: 'Est. Repair Cost:',
       hepart_seller_name: 'Seller:',
       hepart_seller_type: 'Seller type:'
-    },
-
+    }
   };
 
   getLotinfoById();
-  console.log('A');
 
 })()
