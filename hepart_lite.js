@@ -65,7 +65,7 @@
               theData.awardedHighBid = resp.currentBid || 0;
               theData.lotSold = resp.lotSold || false;
               theData.cuc = data.cuc || 'USD';
-              insertTableRows(theData);
+						  updateSoldSection(theData);
             })
         });
 
@@ -115,12 +115,13 @@
       var tmpl = `<div id='hepart_repair_cost'><div class='details hepart_row'><label>${tranlations[userLang].hepart_repair_cost}</label><span class='lot-details-desc col-md-6'>${formatter.format(data.rc)} ${data.cuc}</span></div></div>`;
       container.prepend($(tmpl));
     }
+    /*
     if (isFinalPriceDataAvailable) {
       removeEl('hepart_final_price');
       var container = $(document.querySelector('.disclaimer p')).parent();
       var tmpl = `<div id='hepart_final_price' class='sold hepart_final_price'>${tranlations[userLang].hepart_final_price} ${formatter.format(data.awardedHighBid)} ${data.cuc} </div>`;
       container.after($(tmpl));
-    }
+    } */
     if (!isSellerRowDataAvailable && !isRepairCostDataAvailable && !isFinalPriceDataAvailable && !data.ifs) {
       removeEl('hepart_no_data');
       var container = $(document.querySelector('.watch-btn'));
@@ -129,6 +130,17 @@
     }
   }
 
+  function updateSoldSection(data) {
+	var isFinalPriceDataAvailable = data.lotSold && data.awardedHighBid && data.awardedHighBid != 0;
+	var isContainerNotRendered = $('#hepart_final_price').length == 0;
+
+	if (isFinalPriceDataAvailable && isContainerNotRendered) {
+		var container = $(document.querySelector('.disclaimer p')).parent();
+		var tmpl = `<div id='hepart_final_price' class='sold hepart_final_price'>${tranlations[userLang].hepart_final_price ${formatter.format(data.awardedHighBid)} ${data.cuc} </div>`;
+		container.after($(tmpl));
+	}
+}
+  
   function removeEl(id) {
     while (div = document.querySelector(id)) {
       div.parentNode.removeChild(div);
