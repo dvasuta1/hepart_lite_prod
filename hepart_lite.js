@@ -53,6 +53,7 @@
           }
         })
         .then(data => {
+          insertTableRows(data);
           getDynamicData(lotId)
             .then((response) => {
               if (!response.data.lotDetails) {
