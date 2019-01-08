@@ -65,7 +65,7 @@
               theData.awardedHighBid = resp.currentBid || 0;
               theData.lotSold = resp.lotSold || false;
               theData.cuc = data.cuc || 'USD';
-						  updateSoldSection(theData);
+	      updateSoldSection(theData);
             })
         });
 
@@ -136,7 +136,7 @@
 
 	if (isFinalPriceDataAvailable && isContainerNotRendered) {
 		var container = $(document.querySelector('.disclaimer p')).parent();
-		var tmpl = `<div id='hepart_final_price' class='sold hepart_final_price'>${tranlations[userLang].hepart_final_price ${formatter.format(data.awardedHighBid)} ${data.cuc} </div>`;
+		var tmpl = `<div id='hepart_final_price' class='sold hepart_final_price'>${tranlations[userLang].hepart_final_price} ${formatter.format(data.awardedHighBid)} ${data.cuc} </div>`;
 		container.after($(tmpl));
 	}
 }
