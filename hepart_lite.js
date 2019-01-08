@@ -133,6 +133,8 @@
   function updateSoldSection(data) {
 	var isFinalPriceDataAvailable = data.lotSold && data.awardedHighBid && data.awardedHighBid != 0;
 	var isContainerNotRendered = $('#hepart_final_price').length == 0;
+	var userLang = getCookie('userLang') || 'en';
+        userLang = userLang === 'ru' ? 'ru' : 'en'
 
 	if (isFinalPriceDataAvailable && isContainerNotRendered) {
 		var container = $(document.querySelector('.disclaimer p')).parent();
